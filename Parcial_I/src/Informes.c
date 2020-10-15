@@ -208,3 +208,97 @@ int Informes_printList(sRubro* list, int len)
 	}
 	return result;
 }
+
+int Informes_CliConMasAvisosActivos(sCliente* listC,int lenC,sPublicacion* listP,int lenP)
+{
+	int retorno=-1;
+	int i;
+	int cont;
+	int max;
+	if(listC!=NULL && lenC>0 && listP!=NULL && lenP>0)
+	{
+		for(i=0;i<lenC;i++)
+		{
+			if(listC[i].isEmpty==FULL)
+			{
+				cont=Informes_ContAvisos(listP, lenP, listC[i].idCliente);
+				if(i==0 || cont>max)
+				{
+					max=cont;
+					retorno=i;
+				}
+				else if(cont==max)
+				{
+					printf("No se encontro un maximo!\n");
+				}
+			}
+		}
+	}
+	return retorno;
+}
+
+int Informes_ContAvisosActivos(sPublicacion* list,int len,int id)
+{
+	int retorno=-1;
+	int i;
+	int auxCont=0;
+	if(list!=NULL &&  len>0)
+	{
+		for(i=0;i<len;i++)
+		{
+			if(list[i].idCliente==id && list[i].estado==ACTIVO)
+			{
+				auxCont++;
+			}
+		}
+		retorno=auxCont;
+	}
+	return retorno;
+}
+
+int Informes_CliConMasAvisosPausados(sCliente* listC,int lenC,sPublicacion* listP,int lenP)
+{
+	int retorno=-1;
+	int i;
+	int cont;
+	int max;
+	if(listC!=NULL && lenC>0 && listP!=NULL && lenP>0)
+	{
+		for(i=0;i<lenC;i++)
+		{
+			if(listC[i].isEmpty==FULL)
+			{
+				cont=Informes_ContAvisos(listP, lenP, listC[i].idCliente);
+				if(i==0 || cont>max)
+				{
+					max=cont;
+					retorno=i;
+				}
+				else if(cont==max)
+				{
+					printf("No se encontro un maximo!\n");
+				}
+			}
+		}
+	}
+	return retorno;
+}
+
+int Informes_ContAvisosPausados(sPublicacion* list,int len,int id)
+{
+	int retorno=-1;
+	int i;
+	int auxCont=0;
+	if(list!=NULL &&  len>0)
+	{
+		for(i=0;i<len;i++)
+		{
+			if(list[i].idCliente==id && list[i].estado==PAUSADO)
+			{
+				auxCont++;
+			}
+		}
+		retorno=auxCont;
+	}
+	return retorno;
+}

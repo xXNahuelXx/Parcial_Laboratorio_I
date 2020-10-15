@@ -38,7 +38,7 @@ void Publicacion_Hardcodeo(sPublicacion* list,int len)
 	int idCliente[5]= {100,100,101,103,104};
 	int numRubro[5]= {5,3,5,3,7};
     char textoAviso[5][51]= {"Llame ya","Llame ahora","Actualizate","Fumiga tu casa","Exorcismos"};
-    int estado[5]={ACTIVO,PAUSADO,PAUSADO,PAUSADO,ACTIVO};
+    int estado[5]={ACTIVO,PAUSADO,PAUSADO,ACTIVO,ACTIVO};
 
     int i;
 

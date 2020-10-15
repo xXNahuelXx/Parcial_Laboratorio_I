@@ -36,7 +36,6 @@ void Menu()
 	sRubro aRubro[RUBROS];
 
 
-
 	if(Cliente_Init(aCliente,CLIENTES)==0 && Publicacion_Init(aPublicacion, PUBLICACIONES)==0)
 	{
 		Cliente_Hardcodeo(aCliente, CLIENTES);
@@ -204,8 +203,8 @@ void Menu()
 						do
 						{
 							if(GetOption("**********************\n>       SUBMENU      <\n**********************\n\n1).Cliente con mas avisos\n2).Cantidad de avisos pausados"
-									"\n3).Rubro con mas avisos\n4).Volver al menu principal\n"
-									"Ingrese una opcion: ","Ingrese un dato valido!\n",&opcionSubMenu,2,1,4)==0)
+									"\n3).Rubro con mas avisos\n4).Cliente con mas avisos activos\n5).Cliente con mas avusos pausados\n6).Volver al menu principal\n"
+									"Ingrese una opcion: ","Ingrese un dato valido!\n",&opcionSubMenu,2,1,5)==0)
 							{
 								switch(opcionSubMenu)
 								{
@@ -230,6 +229,14 @@ void Menu()
 
 										break;
 									case 4:
+										bufferIndex=Informes_CliConMasAvisosActivos(aCliente, CLIENTES,aPublicacion,PUBLICACIONES);
+										printf("El cliente con mas avisos activos es:\n%d %s %s\n",aCliente[bufferIndex].idCliente,aCliente[bufferIndex].nombre,aCliente[bufferIndex].apellido);
+										break;
+									case 5:
+										bufferIndex=Informes_CliConMasAvisosActivos(aCliente, CLIENTES,aPublicacion,PUBLICACIONES);
+										printf("El cliente con mas avisos pausados es:\n%d %s %s\n",aCliente[bufferIndex].idCliente,aCliente[bufferIndex].nombre,aCliente[bufferIndex].apellido);
+										break;
+									case 6:
 										goBack=1;
 										break;
 								}

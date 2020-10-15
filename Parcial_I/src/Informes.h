@@ -112,4 +112,6 @@ int Informes_ContAvisos(sPublicacion*,int,int);
  */
 int Informes_ContRubros(sPublicacion*,int,int);
 
+int Informes_CliConMasAvisosActivos(sCliente* listC,int lenC,sPublicacion* listP,int lenP);
+int Informes_ContAvisosActivos(sPublicacion* list,int len,int id);
 #endif /* INFORMES_H_ */
